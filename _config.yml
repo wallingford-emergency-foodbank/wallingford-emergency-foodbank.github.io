@@ -1,5 +1,5 @@
 url: 'https://wallingford-emergency-foodbank.github.io'
-baseurl: ''
+baseurl: '/'
 title: 'Wallingford Foodbank'
 
 plugins:
