@@ -1,0 +1,75 @@
+---
+title: Home
+layout: default
+---
+<div>
+    <div>
+        <div class="bg-white float-left">
+            <p>
+                
+            </p>
+        </div>
+        <div>
+            <!-- image -->
+            <img src="/assets/img/shelves_3.webp" class="w-full h-[70vh] object-cover"/>
+        </div>
+    </div>
+
+    <div class="flex flex-row -mt-14 mx-50 gap-2 columns-3 justify-center text-white font-bold text-center flex-wrap">
+        <a href="/food-parcels/" class="block p-4 transition-transform duration-100 hover:translate-y-1 bg-red-600">
+            <p class="text-2xl">Need a food parcel?</p>
+            <p class="text-lg">Click here ></p>
+        </a>
+        <a href="/volunteer/" class="block p-4 transition-transform duration-100 hover:translate-y-1 bg-orange-500">
+            <p class="text-2xl">Interested in volunteering?</p>
+            <p class="text-lg">Find out more ></p>
+        </a>
+        <a href="/donate/" class="block p-4 transition-transform duration-100 hover:translate-y-1 bg-yellow-500">
+            <p class="text-2xl">Want to donate?</p>
+            <p class="text-lg">Click here ></p>
+        </a>
+    </div>
+
+    <div class="flex flex-col lg:flex-row lg:flex-wrap mx-20 mt-10 justify-center gap-x-20 gap-y-4">
+        <div class="prose max-lg:mx-auto">
+            <p>
+                We are a registered charity operating a food bank based in the centre of Wallingford with the aim of providing emergency food packages to those who need them. Wallingford Emergency Food Bank was set up by Churches Together in the Wallingford Area and we began serving the community in 2011.
+            </p>
+            <p>
+                In the first year, we provided food for approximately 400 people. The current annual demand is approximately 3000 people. We rely entirely on unpaid volunteers and donations of food and money from the public, churches, and other local organisations. To help support us, please click <a href="/donate/">here</a>.
+            </p>
+            <p>
+                Although we are essentially a Christian run organisation, we are by no means exclusive; we welcome volunteers of any faith or none, and we give food to anyone in real need. 
+            </p>
+        </div>
+        
+        <div class="flex flex-row lg:flex-col gap-2 h-fit max-lg:items-center max-lg:justify-center max-sm:flex-wrap">
+            <div class="flex h-full grow min-w-52" id="map-container">
+                <div id="map" class="aspect-video lg:aspect-square h-full w-full max-h-40"></div>
+                <noscript>
+                    Map not available Please enable Javascript in your browser
+                </noscript>
+            </div>
+            <div class="flex-none">
+                <p class="font-semibold">Our Address</p>
+                <p>Wallingford Emergency Foodbank</p>
+                <p>Ridgeway Community Church</p>
+                <p>21b/22 St Mary’s St</p>
+                <p>Wallingford</p>
+                <p>OX10 0EW</p>
+            </div>
+            <script>
+                  function initMap() {
+                    var rcc = {lat: 51.598698, lng: -1.124873};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 18,
+                      center: rcc
+                    });
+                    var marker = new google.maps.Marker({position: rcc, map: map});
+                  }
+                </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpHnbX9o3W1yAakg92Ws3J8qoKGCcprMs&callback=initMap"></script>
+        </div>
+    </div>
+      
+</div>

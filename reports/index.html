@@ -1,0 +1,38 @@
+---
+title: Reports
+layout: default
+---
+<div class="flex flex-row mx-auto lg:mx-20 my-10 justify-center">
+    <div class="flex flex-row">
+        <div class="prose lg:prose-l max-w-72">
+            <h2>Reports</h2>
+            <p class="block lg:hidden">Click to download a copy of the report.</p>
+            <p class="hidden lg:block">Click to view a report. Click the popout to view in a seperate tab or download a copy.</p>
+            <ul class="lg:max-h-[32rem] lg:overflow-y-scroll">
+                {% assign reports = site.static_files | where_exp:"file","file.path contains 'assets/reports'" | sort: "name" | reverse %}
+                {% assign months = "January, February, March, April, May, June, July, August, September, October, November, December" | split: ", " %}
+                {% for report in reports %}
+                    {% assign report_month_num = report.name | slice: 2, 2 | plus: -1 %}
+                    {% assign report_month = months[report_month_num] %}
+                    {% assign report_year = report.name | slice: 0, 2 | plus: 2000 %}
+                    <li class="list-item lg:hidden"><a href="{{ report.path }}">{{ report_month }} {{ report_year }} Report</a></li>
+                    <li class="hidden lg:list-item"><a href="#" onclick="updateViewer('{{ report.path }}');return false;">{{ report_month }} {{ report_year }} Report</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="hidden lg:block ml-20 overflow-auto">
+            <iframe id="document-viewer" onload="resizeParent()" class="block h-full aspect-[1/1.41]" src=""></iframe>
+        </div>
+    </div>
+</div>
+<script>
+    var documentViewer = document.getElementById("document-viewer");
+    var updateViewer = function(path) {
+        documentViewer.src="https://docs.google.com/gview?url="+window.location.origin+path+"&embedded=true"
+    }
+    var resizeParent = function() {
+        var width = documentViewer.clientWidth;
+        documentViewer.parentElement.style.width = width + "px";
+    }
+    updateViewer("{{ reports[0].path }}");
+</script>
