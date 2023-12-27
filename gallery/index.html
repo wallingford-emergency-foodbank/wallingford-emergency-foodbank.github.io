@@ -6,7 +6,7 @@ layout: default
     <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 p-8">
         {% assign images = site.static_files | where_exp:"file","file.path contains 'assets/img'" %}
         {% for image in images %}
-            <img class="w-max h-min" src="{{ image.path }}" />
+            <img src="{{ image.path }}" />
         {% endfor %}
     </div>
 </div>
