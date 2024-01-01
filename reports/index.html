@@ -4,7 +4,7 @@ layout: default
 ---
 <div class="flex flex-row mx-auto lg:mx-20 my-10 justify-center">
     <div class="flex flex-row">
-        <div class="prose lg:prose-l max-w-72">
+        <div class="prose lg:prose-l max-w-72 shrink-0">
             <h2>Reports</h2>
             <p class="block lg:hidden">Click to download a copy of the report.</p>
             <p class="hidden lg:block">Click to view a report. Click the popout to view in a seperate tab or download a copy.</p>
@@ -20,8 +20,8 @@ layout: default
                 {% endfor %}
             </ul>
         </div>
-        <div class="hidden lg:block ml-20 overflow-auto">
-            <iframe id="document-viewer" onload="resizeParent()" class="block h-full aspect-[1/1.41]" src=""></iframe>
+        <div class="ml-20 hidden lg:flex grow relative shrink-0 aspect-[1/1.41]">
+            <iframe id="document-viewer" style="height:100%;width:100%;border:0;" src=""></iframe>
         </div>
     </div>
 </div>
@@ -29,10 +29,6 @@ layout: default
     var documentViewer = document.getElementById("document-viewer");
     var updateViewer = function(path) {
         documentViewer.src="https://docs.google.com/gview?url="+window.location.origin+path+"&embedded=true"
-    }
-    var resizeParent = function() {
-        var width = documentViewer.clientWidth;
-        documentViewer.parentElement.style.width = width + "px";
     }
     updateViewer("{{ reports[0].path }}");
 </script>
