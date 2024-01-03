@@ -1,0 +1,3 @@
+user-agent: *
+disallow: /assets/
+sitemap: https://www.wallingfordfoodbank.org.uk/sitemap.xml
