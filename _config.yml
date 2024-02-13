@@ -1,6 +1,6 @@
 url: 'https://wallingford-emergency-foodbank.github.io'
 baseurl: '/'
-title: 'Wallingford Foodbank'
+title: 'Wallingford Emergency Foodbank'
 
 plugins:
   - jekyll-postcss-v2
